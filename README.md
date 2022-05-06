@@ -1,5 +1,5 @@
 # fake-data-generator
-Python Fake Turkish Data Generator 
+Python Fake (Turkish) Data Generator 
 
 
 
