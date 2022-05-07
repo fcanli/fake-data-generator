@@ -105,16 +105,18 @@ if __name__ == '__main__':
           "(13)Urun (Beyaz Esya)", "(14)Urun (Elektronik)", "(15)Satis Adedi\n",
           "(16)Satis tarihi", "(17)Satis Fiyati", "(18)Alis Fiyati","(19)Firma\n",
           "Tum alanlari secmek icin '-1'")
-
-    girilen_alanlar = input("Olusacak alanlari Secin (boslukla ayrilmis sekilde ÖRN: 0 2 3 ) : ")
+    girilen_alanlar = str(input("Olusacak alanlari Secin (boslukla ayrilmis sekilde ÖRN: 0 2 3 ) : "))
     if not girilen_alanlar:
         girilen_alanlar = "2 3 4"
+
     satir_sayisi = input("CSV Dosyasi Kac Satir Olsun ? (Varsayilan 100) : ")
     if not satir_sayisi:
         satir_sayisi = 100
+
     dosya_adi = input("Dosya adi (Varsayilan data.csv) : ")
     if not dosya_adi:
         dosya_adi = "data.csv"
+    
     baslik_listesi = girilen_alanlar.split()
     baslik_listesi = list(map(int, baslik_listesi))
     headers = ["Email", "Unvan", "Isim", "Soyisim", "D.Tarihi",
@@ -127,7 +129,11 @@ if __name__ == '__main__':
         headers_yeni=headers
     else:
         for i in baslik_listesi:
-            headers_yeni.append(headers[i])
+            if i < -1 or i > 19:
+                print("sadece -1 ile 19 arasinda deger girilebilir!")
+                exit()
+            else: 
+                headers_yeni.append(headers[i])
     start = time.perf_counter()
     datagenerate(int(satir_sayisi), headers_yeni)
     finish = time.perf_counter()
