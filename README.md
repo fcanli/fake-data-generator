@@ -2,4 +2,4 @@
 Python Fake (Turkish) Data Generator 
 
 
-This python script generate fake data and create csv output.
+This python3 script generate fake data and create csv output.
